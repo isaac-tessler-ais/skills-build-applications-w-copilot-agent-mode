@@ -1,16 +1,35 @@
-# React + Vite
+# Octofit Tracker Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 19 presentation tier for the Octofit Tracker multi-tier application. The app uses Vite, Bootstrap, and `react-router-dom` to display users, teams, activities, leaderboard entries, and workout recommendations from the Node.js API.
 
-Currently, two official plugins are available:
+## Environment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+For GitHub Codespaces, define `VITE_CODESPACE_NAME` in `octofit-tracker/frontend/.env.local`:
 
-## React Compiler
+```text
+VITE_CODESPACE_NAME=<your-codespace-name>
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+When `VITE_CODESPACE_NAME` is set, the frontend requests the API at:
 
-## Expanding the ESLint configuration
+```text
+https://<your-codespace-name>-8000.app.github.dev/api/[component]/
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+When `VITE_CODESPACE_NAME` is unset, the frontend safely falls back to local development URLs under:
+
+```text
+http://localhost:8000/api/[component]/
+```
+
+This fallback prevents accidental `https://undefined-8000.app.github.dev` requests.
+
+## Scripts
+
+```bash
+npm --prefix octofit-tracker/frontend run dev
+npm --prefix octofit-tracker/frontend run build
+npm --prefix octofit-tracker/frontend run lint
+```
+
+The backend should be running on port `8000` before opening the frontend.
