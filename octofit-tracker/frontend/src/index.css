@@ -1,0 +1,80 @@
+:root {
+  --text: #44525f;
+  --text-h: #17212b;
+  --bg: #f5f7f2;
+  --panel: #ffffff;
+  --border: #d9e1db;
+  --code-bg: #eef4f1;
+  --accent: #0f766e;
+  --accent-strong: #164e63;
+  --accent-bg: rgba(15, 118, 110, 0.1);
+  --accent-border: rgba(15, 118, 110, 0.45);
+  --warm: #d97706;
+  --danger: #b91c1c;
+  --shadow:
+    rgba(21, 45, 38, 0.1) 0 16px 40px -24px, rgba(21, 45, 38, 0.12) 0 8px 16px -12px;
+
+  --sans: Avenir, 'Avenir Next', 'Trebuchet MS', sans-serif;
+  --heading: Georgia, 'Times New Roman', serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 16px/150% var(--sans);
+  letter-spacing: 0;
+  color-scheme: light;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.14), transparent 32rem),
+    radial-gradient(circle at top right, rgba(217, 119, 6, 0.12), transparent 24rem),
+    var(--bg);
+}
+
+#root {
+  min-height: 100svh;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  letter-spacing: 0;
+  margin: 0 0 0.5rem;
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: 0;
+  margin: 0 0 8px;
+}
+p {
+  margin: 0;
+}
+
+code,
+button {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
