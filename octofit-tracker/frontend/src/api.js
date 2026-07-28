@@ -17,9 +17,12 @@ function getCodespaceName() {
 
 const codespaceName = getCodespaceName()
 
+// When a Codespace name is available, call the forwarded backend directly.
+// Otherwise use a same-origin '/api' path that the Vite dev server proxies
+// to http://localhost:8000, so the localhost frontend always reaches the API.
 export const apiBaseUrl = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev/api`
-  : 'http://localhost:8000/api'
+  : '/api'
 
 export function buildEndpoint(collection) {
   return `${apiBaseUrl}/${collection}/`

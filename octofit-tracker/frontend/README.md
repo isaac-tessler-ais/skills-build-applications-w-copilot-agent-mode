@@ -16,13 +16,7 @@ When `VITE_CODESPACE_NAME` is set, the frontend requests the API at:
 https://<your-codespace-name>-8000.app.github.dev/api/[component]/
 ```
 
-When `VITE_CODESPACE_NAME` is unset, the frontend safely falls back to local development URLs under:
-
-```text
-http://localhost:8000/api/[component]/
-```
-
-This fallback prevents accidental `https://undefined-8000.app.github.dev` requests.
+When `VITE_CODESPACE_NAME` is unset, the frontend uses same-origin `/api/[component]/` requests, and the Vite dev server proxies them to the backend at `http://localhost:8000`. This lets the localhost frontend reach the API without requiring port `8000` to be reachable directly from the browser, and it prevents accidental `https://undefined-8000.app.github.dev` requests.
 
 If the app is opened through the Codespaces forwarded URL and `VITE_CODESPACE_NAME` is missing, it also infers the Codespace name from the current `-5173.app.github.dev` hostname so browser requests still target the matching port `8000` API.
 
