@@ -1,11 +1,13 @@
 import DataPage from './DataPage'
 import { formatDate, formatReference } from '../formatters'
 
+const apiEndpoint = `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`
+
 export default function Leaderboard() {
   return (
     <DataPage
       collection="leaderboard"
-      endpointPath="/api/leaderboard/"
+      endpointPath={apiEndpoint}
       eyebrow="Standings"
       title="Leaderboard"
       description="Current competitive rankings sorted by the API."

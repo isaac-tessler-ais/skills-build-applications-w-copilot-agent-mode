@@ -1,11 +1,13 @@
 import DataPage from './DataPage'
 import { formatDate, formatReference } from '../formatters'
 
+const apiEndpoint = `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users/`
+
 export default function Users() {
   return (
     <DataPage
       collection="users"
-      endpointPath="/api/users/"
+      endpointPath={apiEndpoint}
       eyebrow="Members"
       title="Users"
       description="Profiles for athletes participating in Octofit challenges."

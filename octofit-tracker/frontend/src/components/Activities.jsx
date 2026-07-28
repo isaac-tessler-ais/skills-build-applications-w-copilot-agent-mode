@@ -1,11 +1,13 @@
 import DataPage from './DataPage'
 import { formatDate, formatReference } from '../formatters'
 
+const apiEndpoint = `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+
 export default function Activities() {
   return (
     <DataPage
       collection="activities"
-      endpointPath="/api/activities/"
+      endpointPath={apiEndpoint}
       eyebrow="Training log"
       title="Activities"
       description="Completed workouts and point-earning activity sessions."
