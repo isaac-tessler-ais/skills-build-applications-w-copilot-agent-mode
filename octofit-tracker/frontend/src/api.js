@@ -1,7 +1,24 @@
-const codespaceName = import.meta.env.VITE_CODESPACE_NAME
+const envCodespaceName = import.meta.env.VITE_CODESPACE_NAME
+
+function getCodespaceName() {
+  if (envCodespaceName) {
+    return envCodespaceName
+  }
+
+  const hostname = window.location.hostname
+  const frontendHostSuffix = '-5173.app.github.dev'
+
+  if (hostname.endsWith(frontendHostSuffix)) {
+    return hostname.slice(0, -frontendHostSuffix.length)
+  }
+
+  return ''
+}
+
+const codespaceName = getCodespaceName()
 
 export const apiBaseUrl = codespaceName
-  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api`
+  ? `https://${codespaceName}-8000.app.github.dev/api`
   : 'http://localhost:8000/api'
 
 export function buildEndpoint(collection) {

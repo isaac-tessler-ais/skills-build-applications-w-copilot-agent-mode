@@ -36,6 +36,9 @@ export default function DataPage({ collection, endpointPath, eyebrow, title, des
 
       {!error && !isLoading && records.length > 0 && (
         <div className="table-shell border rounded-3 bg-white">
+          <div className="table-caption px-3 py-2 border-bottom text-secondary">
+            Loaded from {buildEndpoint(collection)}
+          </div>
           <div className="table-responsive">
             <table className="table table-hover align-middle mb-0">
               <thead>

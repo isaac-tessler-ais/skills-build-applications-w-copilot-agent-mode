@@ -24,6 +24,8 @@ http://localhost:8000/api/[component]/
 
 This fallback prevents accidental `https://undefined-8000.app.github.dev` requests.
 
+If the app is opened through the Codespaces forwarded URL and `VITE_CODESPACE_NAME` is missing, it also infers the Codespace name from the current `-5173.app.github.dev` hostname so browser requests still target the matching port `8000` API.
+
 ## Scripts
 
 ```bash
